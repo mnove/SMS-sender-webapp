@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top" />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- calling include() within scriptlets to load page-css content from its file -->
+    <?!= include("page-css"); // scriptlets using "!" too so it interprests that as html/css ?>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>Send SMS</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <p>Account: <span style="font-style: italic">Your account</span></p>
+      </div>
+
+      <div class="row">
+        <p>
+          Remaining balance: $<span
+            id="balance"
+            style="color: blue; font-style: italic"
+            >0.00</span
+          >
+        </p>
+      </div>
+      <hr />
+    </div>
+
+    <div class="container">
+      <h5>Sms form</h5>
+      <div class="form-block">
+        <div class="row">
+          <div class="input-field col s1">
+            <input disabled id="plus-sign" type="text" class="validate" />
+            <label for="plus-sign">+</label>
+          </div>
+
+          <div class="input-field col s7">
+            <input id="phone-number" type="text" class="validate" required />
+            <label for="phone-number">Phone Number</label>
+            <span class="helper-text" data-error="wrong" data-success="right"
+              >Type phone number</span
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <form class="col s8">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea
+                  id="sms-message"
+                  class="materialize-textarea"
+                ></textarea>
+                <label for="sms-message">Message</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="right-align">
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+            id="btn-send"
+          >
+            Send
+            <i class="material-icons right">send</i>
+          </button>
+          <p id="status"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- callind include() within scriptlets to load page-js content from its file -->
+    <?!= include("page-js");  ?>
+  </body>
+</html>
